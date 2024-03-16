@@ -1,4 +1,6 @@
-﻿using Hackaton.Fiap.Grupo02.Infra.Database;
+﻿using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
+using Hackaton.Fiap.Grupo02.Infra.Database;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Hackaton.Fiap.Grupo02.IOCWrapper
@@ -7,13 +9,8 @@ namespace Hackaton.Fiap.Grupo02.IOCWrapper
     {
         public static void Bootstrap(IServiceCollection services)
         {
-            services.AddDbContext<SistemaDbContext>();
-
-            //services.AddDbContext<SistemaDbContext>(options =>
-            //{
-            //    options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"], new MySqlServerVersion(new Version(8, 0, 25)));
-            //});
-
+            services.AddDbContext<SistemaDbContext>(options => options.UseSqlServer());
+            services.AddScoped<IVideoImageRepository, IVideoImageRepository>();
         }
     }
 }

@@ -23,9 +23,9 @@ namespace Hackaton.Fiap.Grupo02.Infra.Database.Repositories
             return Context.Set<T>().FirstOrDefault(predicate);
         }
 
-        public T? CarregarPorId(Guid id) => Context.Set<T>().FirstOrDefault(m => m.Id == id);
+        public T? CarregarPorId(int id) => Context.Set<T>().FirstOrDefault(m => m.Id == id);
 
-        public void Excluir(Guid id)
+        public void Excluir(int id)
         {
             var entity = Context.Set<T>().Find(id);
             if (entity != null)
