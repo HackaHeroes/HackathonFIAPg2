@@ -11,4 +11,9 @@
     <PackageReference Include="Flunt.Br" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

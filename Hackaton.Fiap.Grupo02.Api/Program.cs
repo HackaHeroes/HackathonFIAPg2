@@ -1,19 +1,11 @@
-using Hackaton.Fiap.Grupo02.API.endpoints.configuracoes;
-using Hackaton.Fiap.Grupo02.API.endpoints.security;
-using Hackaton.Fiap.Grupo02.API.endpoints.usuarioperfis;
-using Hackaton.Fiap.Grupo02.API.endpoints.usuarios;
 using Hackaton.Fiap.Grupo02.IOCWrapper;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
 using Serilog;
 using Serilog.Sinks.MariaDB;
 using Serilog.Sinks.MariaDB.Extensions;
 using System.Reflection;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,45 +24,37 @@ builder.Services.AddCors(options =>
     });
 });
 
-
-
-builder.Services.AddAuthorization(options =>
-{
-    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-        .RequireAuthenticatedUser()
-        .Build();
-    options.AddPolicy("EmployeePolicy", p =>
-        p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
-    options.AddPolicy("CpfPolicy", p =>
-        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
-});
-builder.Services.AddAuthentication(x =>
-{
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters()
-    {
-        ValidateActor = true,
-        ValidateAudience = true,
-        ValidateIssuer = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ClockSkew = TimeSpan.Zero,
-        ValidIssuer = builder.Configuration["JwtBearerTokenSettings:Issuer"],
-        ValidAudience = builder.Configuration["JwtBearerTokenSettings:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(builder.Configuration["JwtBearerTokenSettings:SecretKey"]))
-    };
-});
-
-
-
-
-
-
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+//        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+//        .RequireAuthenticatedUser()
+//        .Build();
+//    options.AddPolicy("EmployeePolicy", p =>
+//        p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
+//    options.AddPolicy("CpfPolicy", p =>
+//        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
+//});
+//builder.Services.AddAuthentication(x =>
+//{
+//    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//}).AddJwtBearer(options =>
+//{
+//    options.TokenValidationParameters = new TokenValidationParameters()
+//    {
+//        ValidateActor = true,
+//        ValidateAudience = true,
+//        ValidateIssuer = true,
+//        ValidateLifetime = true,
+//        ValidateIssuerSigningKey = true,
+//        ClockSkew = TimeSpan.Zero,
+//        ValidIssuer = builder.Configuration["JwtBearerTokenSettings:Issuer"],
+//        ValidAudience = builder.Configuration["JwtBearerTokenSettings:Audience"],
+//        IssuerSigningKey = new SymmetricSecurityKey(
+//            Encoding.UTF8.GetBytes(builder.Configuration["JwtBearerTokenSettings:SecretKey"]))
+//    };
+//});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -78,7 +62,7 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "Sistema Odoias",
+        Title = "Hackaton Fiap - Grupo 02",
         Description = "API do sistema",
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
@@ -129,31 +113,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-#region Autenticacao
-app.MapMethods(AutenticacaoPost.Template, AutenticacaoPost.Methods, AutenticacaoPost.Handle);
-#endregion
-
-#region Usuarios
-app.MapMethods(UsuarioCarregar.Template, UsuarioCarregar.Methods, UsuarioCarregar.Handle);
-app.MapMethods(UsuarioListar.Template, UsuarioListar.Methods, UsuarioListar.Handle);
-app.MapMethods(UsuarioExcluir.Template, UsuarioExcluir.Methods, UsuarioExcluir.Handle);
-
-
-#region UsuarioPerfis
-app.MapMethods(UsuarioPerfisListar.Template, UsuarioPerfisListar.Methods, UsuarioPerfisListar.Handle);
-
-#endregion
-
-#endregion
-
-
-#region Configuracoes
-app.MapMethods(ConfiguracaoListar.Template, ConfiguracaoListar.Methods, ConfiguracaoListar.Handle);
-app.MapMethods(ConfiguracaoCarregar.Template, ConfiguracaoCarregar.Methods, ConfiguracaoCarregar.Handle);
-app.MapMethods(ConfiguracaoAlterar.Template, ConfiguracaoAlterar.Methods, ConfiguracaoAlterar.Handle);
-
-
-#endregion
 
 //Configuracoes
 

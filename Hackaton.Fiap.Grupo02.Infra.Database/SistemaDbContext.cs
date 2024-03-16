@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Hackaton.Fiap.Grupo02.Domain.Entities;
-using Hackaton.Fiap.Grupo02.Infra.Database.Mappings;
 
 
 
@@ -15,26 +13,12 @@ namespace Hackaton.Fiap.Grupo02.Infra.Database
         {
             _configuration = configuration;
         }
-        public virtual DbSet<Empresa> Empresas { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<UsuarioPerfil> UsuarioPerfis { get; set; }
-        public virtual DbSet<UsuarioPerfilAcesso> UsuarioPerfilAcessos { get; set; }
-        public virtual DbSet<UsuarioTelefone> UsuarioTelefones { get; set; }
-
-        public virtual DbSet<Configuracao> Configuracoes{ get; set; }
 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            EmpresaMap.Map(modelBuilder);
-            UsuarioMap.Map(modelBuilder);
-            UsuarioPerfilMap.Map(modelBuilder);
-            UsuarioPerfilAcessoMap.Map(modelBuilder);
-            UsuarioTelefoneMap.Map(modelBuilder);
-            TelefoneTipoMap.Map(modelBuilder);
-            ConfiguracaoMap.Map(modelBuilder);
 
         }
 

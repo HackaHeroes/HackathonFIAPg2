@@ -14,4 +14,10 @@
     <ProjectReference Include="..\Hackaton.Fiap.Grupo02.Domain\Hackaton.Fiap.Grupo02.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Applications\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
 </Project>
