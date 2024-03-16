@@ -8,5 +8,7 @@
         public string ZipFile { get; set; }
         public string ZipName { get; set; }
         public DateTime ZipCreatedAt { get; set; }
+        public bool IsProcessed { get; set; }
+
     }
 }
