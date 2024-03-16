@@ -1,4 +1,6 @@
-﻿using Hackaton.Fiap.Grupo02.Domain.Events;
+using Hackaton.Fiap.Grupo02.Application.Applications;
+using Hackaton.Fiap.Grupo02.Application.Interfaces;
+using Hackaton.Fiap.Grupo02.Domain.Events;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Services;
 using Hackaton.Fiap.Grupo02.Domain.Services;
@@ -39,7 +41,14 @@ public static class Startup
 
                 cfg.ReceiveEndpoint(queueName, e => { e.Consumer<ReceivedMessage>(); });
             });
-        });
+        }
+        public static void AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<IVideoImageRepository, VideoImageRepository>();
+            services.AddScoped<IVideoImageService, VideoImageService>();
+            services.AddScoped<IVideoApplication, VideoApplication>();
+        }
+
     }
     public static void AddServices(this IServiceCollection services)
     {

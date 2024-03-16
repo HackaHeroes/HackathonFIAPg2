@@ -6,6 +6,7 @@ using Serilog;
 using Serilog.Sinks.MariaDB;
 using Serilog.Sinks.MariaDB.Extensions;
 using System.Reflection;
+using Hackaton.Fiap.Grupo02.Api.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,19 +55,19 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
-builder.Host.UseSerilog((context, configuration) =>
-{
-    configuration
-        .WriteTo.Console()
-        .WriteTo.MariaDB(
-            context.Configuration["ConnectionStrings:DefaultConnection"],
-            tableName: "Logs",
-            autoCreateTable: true,
-            useBulkInsert: false,
-            options: new MariaDBSinkOptions()
-            );
+//builder.Host.UseSerilog((context, configuration) =>
+//{
+//    configuration
+//        .WriteTo.Console()
+//        .WriteTo.MariaDB(
+//            context.Configuration["ConnectionStrings:DefaultConnection"],
+//            tableName: "Logs",
+//            autoCreateTable: true,
+//            useBulkInsert: false,
+//            options: new MariaDBSinkOptions()
+//            );
 
-});
+//});
 
 var app = builder.Build();
 app.UseCors("default");
@@ -88,25 +89,25 @@ app.UseHttpsRedirection();
 //Fim Configuracoes
 
 
-//app.MapMethods(AutenticacaoPost.Template, AutenticacaoPost.Methods, AutenticacaoPost.Handle);
+app.MapMethods(VideoImageGetAll.Template, VideoImageGetAll.Methods, VideoImageGetAll.Handle);
 
 
-app.UseExceptionHandler("/error");
-app.Map("/error", (HttpContext http) =>
-{
+//app.UseExceptionHandler("/error");
+//app.Map("/error", (HttpContext http) =>
+//{
 
-    var error = http.Features?.Get<IExceptionHandlerFeature>()?.Error;
+//    var error = http.Features?.Get<IExceptionHandlerFeature>()?.Error;
 
-    if (error != null)
-    {
-        if (error is MySqlException)
-            return Results.Problem(title: "Database out", statusCode: 500);
-        else if (error is BadHttpRequestException)
-            return Results.Problem(title: "Error to convert data to other type. See all the information sent", statusCode: 500);
-    }
+//    if (error != null)
+//    {
+//        if (error is MySqlException)
+//            return Results.Problem(title: "Database out", statusCode: 500);
+//        else if (error is BadHttpRequestException)
+//            return Results.Problem(title: "Error to convert data to other type. See all the information sent", statusCode: 500);
+//    }
 
-    return Results.Problem(title: "An error ocurred", statusCode: 500);
-});
+//    return Results.Problem(title: "An error ocurred", statusCode: 500);
+//});
 
 
 

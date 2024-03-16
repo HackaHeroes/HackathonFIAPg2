@@ -1,6 +1,49 @@
 # HackathonFIAPg2
 
-# Script Database
+## Descrição
+
+Este é um breve parágrafo descrevendo o que sua aplicação faz e para que ela serve.
+
+## Diagrama Simples
+
+Aqui você pode descrever o diagrama simples criado no inicio do projeto com o que representa a estrutura ou o fluxo da sua aplicação.  
+
+
+
+## Instruções de Docker
+
+### Pré-requisitos
+
+Certifique-se de ter o Docker instalado em sua máquina. Se não, você pode baixá-lo [aqui](https://www.docker.com/products/docker-desktop).
+
+### Construção do Docker - em ediçao
+
+Para construir a imagem do Docker para esta aplicação, navegue até o diretório raiz onde o Dockerfile está localizado e execute o seguinte comando:
+
+```bash
+docker build -t nome-da-aplicacao .
+```
+
+### Executando a Aplicação - em ediçao
+
+Depois de construir a imagem do Docker, você pode executar a aplicação com o seguinte comando:
+
+```bash
+docker run -p 8000:8000 nome-da-aplicacao
+```
+
+Agora, a aplicação deve estar rodando na porta 8000 do seu localhost.
+
+## Contribuição
+
+
+Esse projeto foi feito para a resolução de um Hackathon, seus contribuidores podem ser vistos nessa página:
+https://github.com/orgs/HackaHeroes/people
+
+
+## Script Database
+
+```
 /****** Object:  Table [dbo].[VideoImages]    Script Date: 16/03/2024 14:43:26 ******/
 SET ANSI_NULLS ON
 GO
