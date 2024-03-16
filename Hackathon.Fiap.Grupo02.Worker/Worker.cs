@@ -2,7 +2,7 @@ using System.Text;
 using Azure.Messaging.ServiceBus;
 using Hackaton.Fiap.Grupo02.Domain.Data;
 
-namespace Hackaton.Fiap.Grupo02.Api;
+namespace Hackathon.Fiap.Grupo02.Worker;
 
 public class Worker : BackgroundService
 {

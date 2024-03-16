@@ -6,10 +6,9 @@ using Serilog;
 using Serilog.Sinks.MariaDB;
 using Serilog.Sinks.MariaDB.Extensions;
 using System.Reflection;
+using Hackaton.Fiap.Grupo02.Api;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 Startup.Bootstrap(builder.Services);
 
 
@@ -23,38 +22,6 @@ builder.Services.AddCors(options =>
         policy.AllowAnyOrigin();
     });
 });
-
-//builder.Services.AddAuthorization(options =>
-//{
-//    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-//        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-//        .RequireAuthenticatedUser()
-//        .Build();
-//    options.AddPolicy("EmployeePolicy", p =>
-//        p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
-//    options.AddPolicy("CpfPolicy", p =>
-//        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
-//});
-//builder.Services.AddAuthentication(x =>
-//{
-//    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//}).AddJwtBearer(options =>
-//{
-//    options.TokenValidationParameters = new TokenValidationParameters()
-//    {
-//        ValidateActor = true,
-//        ValidateAudience = true,
-//        ValidateIssuer = true,
-//        ValidateLifetime = true,
-//        ValidateIssuerSigningKey = true,
-//        ClockSkew = TimeSpan.Zero,
-//        ValidIssuer = builder.Configuration["JwtBearerTokenSettings:Issuer"],
-//        ValidAudience = builder.Configuration["JwtBearerTokenSettings:Audience"],
-//        IssuerSigningKey = new SymmetricSecurityKey(
-//            Encoding.UTF8.GetBytes(builder.Configuration["JwtBearerTokenSettings:SecretKey"]))
-//    };
-//});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -80,15 +47,14 @@ builder.Services.AddSwaggerGen(options =>
     // using System.Reflection;
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
 
-
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 
 builder.Host.UseSerilog((context, configuration) =>
-{
+{        
+
     configuration
-        .WriteTo.Console()
         .WriteTo.MariaDB(
             context.Configuration["ConnectionStrings:DefaultConnection"],
             tableName: "Logs",
@@ -96,7 +62,7 @@ builder.Host.UseSerilog((context, configuration) =>
             useBulkInsert: false,
             options: new MariaDBSinkOptions()
             );
-
+    
 });
 
 var app = builder.Build();
@@ -118,9 +84,6 @@ app.UseHttpsRedirection();
 
 //Fim Configuracoes
 
-
-
-
 app.UseExceptionHandler("/error");
 app.Map("/error", (HttpContext http) =>
 {
@@ -137,8 +100,6 @@ app.Map("/error", (HttpContext http) =>
 
     return Results.Problem(title: "An error ocurred", statusCode: 500);
 });
-
-
 
 app.Run();
 

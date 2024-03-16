@@ -9,7 +9,7 @@ namespace Hackaton.Fiap.Grupo02.IOCWrapper;
 
 public static class Startup
 {
-    public static void Bootstrap(IServiceCollection services)
+    public static void Bootstrap(this IServiceCollection services)
     {
         services.AddDbContext<SistemaDbContext>();
 
@@ -20,7 +20,7 @@ public static class Startup
 
     }
         
-    public static void ServiceBusSettings(IServiceCollection services, IConfiguration configuration)
+    public static void ServiceBusSettings(this IServiceCollection services, IConfiguration configuration)
     {
         var queueName = configuration.GetSection("ServiceBusSettings")["Subscription"] ?? string.Empty;
         var connectionString = configuration.GetSection("ServiceBusSettings")["PubSubConnection"] ?? string.Empty;
@@ -37,5 +37,10 @@ public static class Startup
                 });
             });
         });
+    }
+    
+    public static void AddServices(this IServiceCollection services)
+    {
+        //services.AddScoped<>();
     }
 }

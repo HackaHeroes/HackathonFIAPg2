@@ -16,7 +16,7 @@ public class VideoController : ControllerBase
 
     public async Task<IActionResult> Get(string url)
     {
-        await _application.Processa(url);
+        await _application.ProcessReceivedMessage(url);
 
         return Ok();
     }
