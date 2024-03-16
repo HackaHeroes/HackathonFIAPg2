@@ -29,7 +29,8 @@ public class VideoController : ControllerBase
         }
 
         [HttpPost, DisableRequestSizeLimit]
-        public async Task<IActionResult> Post([FromForm] object data)
+        [RequestSizeLimit(valueCountLimit: int.MaxValue)]
+        public async Task<IActionResult> Post([FromForm] string data)
         {
             Console.WriteLine(data);
             var file = Request.Form.Files[0];
