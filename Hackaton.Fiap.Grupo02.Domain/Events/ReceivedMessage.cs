@@ -1,8 +1,9 @@
-﻿using MassTransit;
+﻿using Hackaton.Fiap.Grupo02.Domain.Data;
+using MassTransit;
 
 namespace Hackaton.Fiap.Grupo02.Domain.Events;
 
-public class ReceivedMessage : IConsumer<MessageData<>>
+public class ReceivedMessage : IConsumer<MessageData>
 {
     public Task Consume(ConsumeContext<MessageData> context)
     {

@@ -1,4 +1,5 @@
-﻿using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
+﻿using Hackaton.Fiap.Grupo02.Domain.Events;
+using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Services;
 using Hackaton.Fiap.Grupo02.Domain.Services;
 using Hackaton.Fiap.Grupo02.Infra.Database;
@@ -41,7 +42,7 @@ namespace Hackaton.Fiap.Grupo02.IOCWrapper
 
                     cfg.ReceiveEndpoint(queueName, e =>
                     {
-                        e.Consumer<ReceivedMessage<>>();
+                        e.Consumer<ReceivedMessage>();
                     });
                 });
             });
