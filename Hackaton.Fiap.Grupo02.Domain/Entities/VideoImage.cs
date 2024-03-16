@@ -1,4 +1,4 @@
-﻿namespace Hackaton.Fiap.Grupo02.Domain.Entities
+namespace Hackaton.Fiap.Grupo02.Domain.Entities
 {
     public class VideoImage: BaseEntity
     {

@@ -30,12 +30,12 @@ public class VideoApplication : IVideoApplication
         return ms;
     }
 
-    private void GravarArquivo(string output)
+    private void SaveFile(string output)
     {
 
     }
 
-    public Task Processa(string url)
+    public Task GetStatusProcessAsync(string url)
     {
         throw new NotImplementedException();
     }

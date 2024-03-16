@@ -12,8 +12,8 @@ public class ArquivoZipTests
         string origem = string.Empty;
         string destino = string.Empty;
 
-        Mock<IArquivoZip> arquivoZipMock = new Mock<IArquivoZip>();
-        arquivoZipMock.Setup(x => x.GravarArquivo(It.IsAny<string>(), It.IsAny<string>()));
+        Mock<IZipFile> arquivoZipMock = new Mock<IZipFile>();
+        arquivoZipMock.Setup(x => x.SaveFile(It.IsAny<string>(), It.IsAny<string>()));
 
 
         arquivoZipMock.Verify();

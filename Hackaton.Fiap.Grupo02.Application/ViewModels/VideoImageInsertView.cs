@@ -1,16 +1,16 @@
 ﻿using Hackaton.Fiap.Grupo02.Domain.Entities;
 
-namespace Hackaton.Fiap.Grupo02.Application.ViewModels
-{
-    public class VideoImageInsertView
-    {
-        public string VideoName { get; set; }
-        public string VideoLink { get; set; }
-        public string ZipFile { get; set; }
-        public string ZipName { get; set; }
+namespace Hackaton.Fiap.Grupo02.Application.ViewModels;
 
-        public static explicit operator VideoImageInsertView(VideoImage obj)
-        {
+public class VideoImageInsertView
+{
+    public string VideoName { get; set; }
+    public string VideoLink { get; set; }
+    public string ZipFile { get; set; }
+    public string ZipName { get; set; }
+
+    public static explicit operator VideoImageInsertView(VideoImage obj)
+    {
             var model = new VideoImageInsertView
             {
                 VideoName = obj.VideoName,
@@ -20,5 +20,4 @@ namespace Hackaton.Fiap.Grupo02.Application.ViewModels
             };
             return model;
         }
-    }
 }
