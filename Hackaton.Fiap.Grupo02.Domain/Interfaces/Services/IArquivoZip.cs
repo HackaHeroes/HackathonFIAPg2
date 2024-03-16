@@ -2,5 +2,5 @@
 
 public interface IArquivoZip
 {
-
+    void GravarArquivo(string origem, string destino);
 }
