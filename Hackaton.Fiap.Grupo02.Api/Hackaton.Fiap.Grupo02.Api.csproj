@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Hackaton.Fiap.Grupo02.IOCWrapper\Hackaton.Fiap.Grupo02.IOCWrapper.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
