@@ -1,4 +1,5 @@
 ﻿using Hackaton.Fiap.Grupo02.Application.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Hackaton.Fiap.Grupo02.Api.Controllers
 {
@@ -9,9 +10,11 @@ namespace Hackaton.Fiap.Grupo02.Api.Controllers
         public static Delegate Handle => Action;
         
         
-        public static IResult Action(IVideoApplication videoApp)
+        public static IResult Action([FromServices] IVideoApplication videoApp)
         {
-            return Results.Ok(videoApp.GetAll());
+
+            var retorno = videoApp.GetAll();
+            return Results.Ok(retorno);
         }
     }
 }

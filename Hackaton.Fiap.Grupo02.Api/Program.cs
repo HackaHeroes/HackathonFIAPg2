@@ -1,12 +1,7 @@
-using Hackaton.Fiap.Grupo02.IOCWrapper;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.OpenApi.Models;
-using MySqlConnector;
-using Serilog;
-using Serilog.Sinks.MariaDB;
-using Serilog.Sinks.MariaDB.Extensions;
-using System.Reflection;
 using Hackaton.Fiap.Grupo02.Api.Controllers;
+using Hackaton.Fiap.Grupo02.IOCWrapper;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
