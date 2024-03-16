@@ -1,7 +1,7 @@
 # HackathonFIAPg2
 
 # Script Database
-/****** Object:  Table [dbo].[VideoImages]    Script Date: 16/03/2024 11:09:45 ******/
+/****** Object:  Table [dbo].[VideoImages]    Script Date: 16/03/2024 14:43:26 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -16,6 +16,7 @@ CREATE TABLE [dbo].[VideoImages](
 	[ZipFile] [varchar](max) NULL,
 	[ZipName] [varchar](500) NULL,
 	[ZipCreatedAt] [smalldatetime] NULL,
+	[IsProcessed] [bit] NULL,
  CONSTRAINT [PK_VideoImages] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -24,5 +25,8 @@ CREATE TABLE [dbo].[VideoImages](
 GO
 
 ALTER TABLE [dbo].[VideoImages] ADD  CONSTRAINT [DF_VideoImages_CreatedAt]  DEFAULT (getdate()) FOR [CreatedAt]
-
 GO
+
+ALTER TABLE [dbo].[VideoImages] ADD  CONSTRAINT [DF_VideoImages_FlgProcessed]  DEFAULT ((0)) FOR [IsProcessed]
+GO
+
