@@ -38,6 +38,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Infra.FFMpegSupport", "Hackaton.Fiap.Grupo02.Infra.FFMpegSupport\Hackaton.Fiap.Grupo02.Infra.FFMpegSupport.csproj", "{4D27A823-1841-4C3B-89DE-EB3B46C75274}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackathon.Fiap.Grupo02.Worker", "Hackathon.Fiap.Grupo02.Worker\Hackathon.Fiap.Grupo02.Worker.csproj", "{08CE3156-31D7-4E99-99C4-EF78996F2C0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{4D27A823-1841-4C3B-89DE-EB3B46C75274}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D27A823-1841-4C3B-89DE-EB3B46C75274}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D27A823-1841-4C3B-89DE-EB3B46C75274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08CE3156-31D7-4E99-99C4-EF78996F2C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08CE3156-31D7-4E99-99C4-EF78996F2C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08CE3156-31D7-4E99-99C4-EF78996F2C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08CE3156-31D7-4E99-99C4-EF78996F2C0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{0484FCC8-6194-4228-886A-DD0E4ADFB223} = {312435A1-BB91-424F-AEB0-9E0572A4409C}
 		{C73055FB-80AE-44C4-9E8C-174018AF1D44} = {F08CC85D-5CEA-467C-87F2-7BE3548B398C}
 		{4D27A823-1841-4C3B-89DE-EB3B46C75274} = {312435A1-BB91-424F-AEB0-9E0572A4409C}
+		{08CE3156-31D7-4E99-99C4-EF78996F2C0B} = {0384C9C3-E850-4795-B0D0-070834B189D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0922C072-6EE4-4DD9-BF69-7D0F9409C080}
