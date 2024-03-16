@@ -11,8 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sistema.Application\Hackaton.Fiap.Grupo02.Application.csproj" />
-    <ProjectReference Include="..\Sistema.Infra.Database\Hackaton.Fiap.Grupo02.Infra.Database.csproj" />
+    <ProjectReference Include="..\Hackaton.Fiap.Grupo02.Application\Hackaton.Fiap.Grupo02.Application.csproj" />
+    <ProjectReference Include="..\Hackaton.Fiap.Grupo02.Domain\Hackaton.Fiap.Grupo02.Domain.csproj" />
+    <ProjectReference Include="..\Hackaton.Fiap.Grupo02.Infra.Database\Hackaton.Fiap.Grupo02.Infra.Database.csproj" />
   </ItemGroup>
 
 </Project>

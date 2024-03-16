@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sistema.IOCWrapper\Hackaton.Fiap.Grupo02.IOCWrapper.csproj" />
+    <ProjectReference Include="..\Hackaton.Fiap.Grupo02.IOCWrapper\Hackaton.Fiap.Grupo02.IOCWrapper.csproj" />
   </ItemGroup>
 
 </Project>

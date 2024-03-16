@@ -2,12 +2,10 @@ using Hackaton.Fiap.Grupo02.API.endpoints.configuracoes;
 using Hackaton.Fiap.Grupo02.API.endpoints.security;
 using Hackaton.Fiap.Grupo02.API.endpoints.usuarioperfis;
 using Hackaton.Fiap.Grupo02.API.endpoints.usuarios;
-using Hackaton.Fiap.Grupo02.Infra.Database;
 using Hackaton.Fiap.Grupo02.IOCWrapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
@@ -116,17 +114,6 @@ builder.Host.UseSerilog((context, configuration) =>
             );
 
 });
-
-
-builder.Services.AddDbContext<SistemaDbContext>(options =>
-{
-    options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"], new MySqlServerVersion(new Version(8, 0, 25)));
-});
-
-
-
-
-
 
 var app = builder.Build();
 app.UseCors("default");
