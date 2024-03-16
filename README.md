@@ -8,7 +8,7 @@ Este é um breve parágrafo descrevendo o que sua aplicação faz e para que ela
 
 Aqui você pode descrever o diagrama simples criado no inicio do projeto com o que representa a estrutura ou o fluxo da sua aplicação.  
 
-
+![diagrama inicial](https://github.com/HackaHeroes/HackathonFIAPg2/assets/40128511/7431effb-1bf4-4d6c-a12f-56492cf9d3d3)
 
 ## Instruções de Docker
 
