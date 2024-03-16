@@ -1,4 +1,4 @@
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
 namespace Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories
 {

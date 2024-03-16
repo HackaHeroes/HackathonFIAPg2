@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Infrastructure", "3.Infra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Crosscutting", "4.Crosscutting", "{B6ED0816-737C-4BB3-BC09-57E11596E497}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Api", "Hackaton.Fiap.Grupo02.Api\Hackaton.Fiap.Grupo02.Api.csproj", "{93CC89A0-632A-49CA-BD68-4E3E084D137F}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Application", "Hackaton.Fiap.Grupo02.Application\Hackaton.Fiap.Grupo02.Application.csproj", "{80DCA39A-2ED4-4AC8-B26A-E817BEBEA5C0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Domain", "Hackaton.Fiap.Grupo02.Domain\Hackaton.Fiap.Grupo02.Domain.csproj", "{95A999B6-7E65-46ED-965B-FC5C2CF191E8}"
@@ -36,14 +38,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Infra.FFMpegSupport", "Hackaton.Fiap.Grupo02.Infra.FFMpegSupport\Hackaton.Fiap.Grupo02.Infra.FFMpegSupport.csproj", "{4D27A823-1841-4C3B-89DE-EB3B46C75274}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon.Fiap.Grupo02.Worker", "Hackathon.Fiap.Grupo02.Worker\Hackathon.Fiap.Grupo02.Worker.csproj", "{63B0E001-A13E-4B96-A2E9-4BACC3B577A5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93CC89A0-632A-49CA-BD68-4E3E084D137F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CC89A0-632A-49CA-BD68-4E3E084D137F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CC89A0-632A-49CA-BD68-4E3E084D137F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CC89A0-632A-49CA-BD68-4E3E084D137F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{80DCA39A-2ED4-4AC8-B26A-E817BEBEA5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80DCA39A-2ED4-4AC8-B26A-E817BEBEA5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80DCA39A-2ED4-4AC8-B26A-E817BEBEA5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -76,15 +80,12 @@ Global
 		{4D27A823-1841-4C3B-89DE-EB3B46C75274}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D27A823-1841-4C3B-89DE-EB3B46C75274}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D27A823-1841-4C3B-89DE-EB3B46C75274}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63B0E001-A13E-4B96-A2E9-4BACC3B577A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63B0E001-A13E-4B96-A2E9-4BACC3B577A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63B0E001-A13E-4B96-A2E9-4BACC3B577A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63B0E001-A13E-4B96-A2E9-4BACC3B577A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{93CC89A0-632A-49CA-BD68-4E3E084D137F} = {0384C9C3-E850-4795-B0D0-070834B189D4}
 		{80DCA39A-2ED4-4AC8-B26A-E817BEBEA5C0} = {22D4389F-9108-443D-8B5A-2640DD3600D7}
 		{95A999B6-7E65-46ED-965B-FC5C2CF191E8} = {2F418DB3-7771-4B12-81F5-4164B546BA56}
 		{D40FABA4-8595-4B32-8A46-3C9E75BB5031} = {312435A1-BB91-424F-AEB0-9E0572A4409C}
@@ -93,7 +94,6 @@ Global
 		{0484FCC8-6194-4228-886A-DD0E4ADFB223} = {312435A1-BB91-424F-AEB0-9E0572A4409C}
 		{C73055FB-80AE-44C4-9E8C-174018AF1D44} = {F08CC85D-5CEA-467C-87F2-7BE3548B398C}
 		{4D27A823-1841-4C3B-89DE-EB3B46C75274} = {312435A1-BB91-424F-AEB0-9E0572A4409C}
-		{63B0E001-A13E-4B96-A2E9-4BACC3B577A5} = {0384C9C3-E850-4795-B0D0-070834B189D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0922C072-6EE4-4DD9-BF69-7D0F9409C080}
