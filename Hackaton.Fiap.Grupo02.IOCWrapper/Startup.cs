@@ -6,7 +6,6 @@ using Hackaton.Fiap.Grupo02.Infra.Database;
 using Hackaton.Fiap.Grupo02.Infra.Database.Repositories;
 using Microsoft.EntityFrameworkCore;
 using MassTransit;
-using MassTransit.Testing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -32,8 +31,8 @@ public static class Startup
     
     public static void AddServiceBus(this IServiceCollection services, IConfiguration configuration)
     {
-        var queueName = configuration.GetSection("AddServiceBus")["Subscription"] ?? string.Empty;
-        var connectionString = configuration.GetSection("AddServiceBus")["PubSubConnection"] ?? string.Empty;
+        var queueName = configuration.GetSection("ServiceBusSettings")["Subscription"] ?? string.Empty;
+        var connectionString = configuration.GetSection("ServiceBusSettings")["PubSubConnection"] ?? string.Empty;
         
 
         services.AddMassTransit(x =>

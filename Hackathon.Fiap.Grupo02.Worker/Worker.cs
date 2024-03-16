@@ -16,8 +16,8 @@ public class Worker : BackgroundService
         _logger = logger;
         _configuration = configuration;
 
-        var queueName = configuration.GetSection("AddServiceBus")["Subscription"] ?? string.Empty;
-        var connectionString = configuration.GetSection("AddServiceBus")["PubSubConnection"] ?? string.Empty;
+        var queueName = configuration.GetSection("ServiceBusSettings")["Subscription"] ?? string.Empty;
+        var connectionString = configuration.GetSection("ServiceBusSettings")["PubSubConnection"] ?? string.Empty;
 
         _serviceBusClient = new ServiceBusClient(connectionString);
         _receiver = _serviceBusClient.CreateReceiver(queueName);
