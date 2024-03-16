@@ -24,6 +24,16 @@ public class VideoImageService : IVideoImageService
         return obj;
     }
 
+    public IEnumerable<VideoImage> GetAllUploads()
+    {
+        throw new NotImplementedException();
+    }
+
+    public VideoImage GetVideoById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
     public void Insert(VideoImage entity)
     {
         _videoImageRepository.InsertVideo(entity);
