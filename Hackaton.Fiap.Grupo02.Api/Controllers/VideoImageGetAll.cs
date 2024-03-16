@@ -8,12 +8,12 @@ namespace Hackaton.Fiap.Grupo02.Api.Controllers
         public static string Template => "/videoimage";
         public static string[] Methods => new string[] { HttpMethod.Get.ToString() };
         public static Delegate Handle => Action;
-        
-        
+
+
         public static IResult Action([FromServices] IVideoApplication videoApp)
         {
 
-            var retorno = videoApp.GetAll();
+            var retorno = string.Empty; //videoApp.GetAll();
             return Results.Ok(retorno);
         }
     }

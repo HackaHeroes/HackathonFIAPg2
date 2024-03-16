@@ -5,10 +5,10 @@ namespace Hackaton.Fiap.Grupo02.Application.Applications;
 
 public class VideoApplication : IVideoApplication
 {
-    public readonly IVideoApplication _videoApp;
-    public VideoApplication(IVideoApplication videoApp)
+
+    public VideoApplication()
     {
-        _videoApp = videoApp;
+
     }
 
 
@@ -50,9 +50,4 @@ public class VideoApplication : IVideoApplication
         return Task.CompletedTask;
     }
 
-    public Task<List<VideoImage>> GetAll()
-    {
-        return _videoApp.GetAll();
-
-    }
 }
