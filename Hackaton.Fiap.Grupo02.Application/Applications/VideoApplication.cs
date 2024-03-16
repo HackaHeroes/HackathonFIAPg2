@@ -1,14 +1,14 @@
-﻿using Hackaton.Fiap.Grupo02.Application.Interfaces;
-using Hackaton.Fiap.Grupo02.Domain.Entities;
+using Hackaton.Fiap.Grupo02.Application.Interfaces;
+using Hackaton.Fiap.Grupo02.Application.ViewModels;
 
 namespace Hackaton.Fiap.Grupo02.Application.Applications;
 
 public class VideoApplication : IVideoApplication
 {
-    public readonly IVideoApplication _videoApp;
-    public VideoApplication(IVideoApplication videoApp)
+
+    public VideoApplication()
     {
-        _videoApp = videoApp;
+
     }
 
 
@@ -35,14 +35,19 @@ public class VideoApplication : IVideoApplication
 
     }
 
-    public Task GetStatusProcessAsync(string url)
+
+    public Task Processa(InboundFileViewModel file)
     {
-        throw new NotImplementedException();
+        var content = file.Res.Split(";");
+        var fileName = file.Name;
+        var type = content[0];
+        var base64 = content[1];
+
+        Console.WriteLine(type);
+        Console.WriteLine(content);
+        Console.WriteLine(fileName);
+
+        return Task.CompletedTask;
     }
 
-    public Task<List<VideoImage>> GetAll()
-    {
-        return _videoApp.GetAll();
-
-    }
 }

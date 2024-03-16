@@ -21,6 +21,7 @@ public static class Startup
         services.AddDbContext<SistemaDbContext>(options => options.UseSqlServer());
         services.AddScoped<IVideoImageRepository, VideoImageRepository>();
         services.AddScoped<IVideoImageService, VideoImageService>();
+        services.AddScoped<IVideoApplication, VideoApplication>();
     }
 
     public static void AddDataBase(this IServiceCollection services)
