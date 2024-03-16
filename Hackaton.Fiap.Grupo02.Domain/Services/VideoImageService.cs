@@ -12,51 +12,41 @@ public class VideoImageService : IVideoImageService
     {
         _videoImageRepository = videoImageRepository;
     }
-
-    /// <summary>
-    /// Obtem todos os videos 
-    /// </summary>
-    /// <returns></returns>
+    
     public IEnumerable<VideoImage> GetAll()
     {
-        return _videoImageRepository.GetAllSavedVideos();
+        return _videoImageRepository.GetAllUploads();
     }
 
-    /// <summary>
-    /// Obtem o video por Id
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
     public VideoImage? GetById(int id)
     {
         var obj = _videoImageRepository.GetVideoById(id);
         return obj;
     }
 
-    /// <summary>
-    /// Insere o video no banco de dados
-    /// </summary>
-    /// <param name="entity"></param>
+    public IEnumerable<VideoImage> GetAllUploads()
+    {
+        throw new NotImplementedException();
+    }
+
+    public VideoImage GetVideoById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
     public void Insert(VideoImage entity)
     {
         _videoImageRepository.InsertVideo(entity);
     }
 
-    /// <summary>
-    /// Atualiza o registro do video
-    /// </summary>
-    /// <param name="entity"></param>
     public void Update(VideoImage entity)
     {
         _videoImageRepository.UpdateVideoRegistry(entity);
+        
     }
 
-    /// <summary>
-    /// Apaga o registro do video do banco de dados por Id
-    /// </summary>
-    /// <param name="id"></param>
     public void Delete(int id)
     {
-        _videoImageRepository.DEleteVideoRegistryById(id);
+        _videoImageRepository.DeleteVideoById(id);
     }
 }

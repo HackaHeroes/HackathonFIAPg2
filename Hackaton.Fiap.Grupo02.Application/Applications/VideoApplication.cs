@@ -29,6 +29,16 @@ public class VideoApplication : IVideoApplication
         var stream = await ToMemoryStream(JsonSerializer.Serialize(message));
     }
 
+    public Task ProcessAsync(BinaryData message)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task GetStatusAsync(string url)
+    {
+        throw new NotImplementedException();
+    }
+
     private static async Task<MemoryStream> ToMemoryStream(string base64)
     {
         byte[] bArray = Convert.FromBase64String(base64);

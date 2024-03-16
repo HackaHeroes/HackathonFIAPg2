@@ -42,7 +42,7 @@ public class Worker : BackgroundService
                     Console.WriteLine(messageData.ToString());
                 }
 
-                await _videoApplication.ProcessAsync(messageData.Message);
+                await _videoApplication.ProcessAsync(body);
             }
 
             await _receiver.CompleteMessageAsync(receivedMessage);
