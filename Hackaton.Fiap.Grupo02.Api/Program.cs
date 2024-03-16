@@ -20,7 +20,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -48,21 +47,6 @@ builder.Services.AddSwaggerGen(options =>
 
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
-
-
-//builder.Host.UseSerilog((context, configuration) =>
-//{
-//    configuration
-//        .WriteTo.Console()
-//        .WriteTo.MariaDB(
-//            context.Configuration["ConnectionStrings:DefaultConnection"],
-//            tableName: "Logs",
-//            autoCreateTable: true,
-//            useBulkInsert: false,
-//            options: new MariaDBSinkOptions()
-//            );
-
-//});
 
 var app = builder.Build();
 app.UseCors("default");

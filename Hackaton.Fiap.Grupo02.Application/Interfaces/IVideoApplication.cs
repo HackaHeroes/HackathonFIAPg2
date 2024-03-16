@@ -1,10 +1,11 @@
+using Hackaton.Fiap.Grupo02.Domain.Data;
 using Hackaton.Fiap.Grupo02.Domain.Entities;
 
 namespace Hackaton.Fiap.Grupo02.Application.Interfaces;
 
 public interface IVideoApplication
 {
-    Task Processa(string url);
+    Task ProcessAsync(MessageData message);
 
-    Task<List<VideoImage>> GetAll();
+    IEnumerable<VideoImage> GetAll();
 }

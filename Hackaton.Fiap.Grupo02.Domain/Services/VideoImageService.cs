@@ -2,43 +2,61 @@
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Services;
 
-namespace Hackaton.Fiap.Grupo02.Domain.Services
+namespace Hackaton.Fiap.Grupo02.Domain.Services;
+
+public class VideoImageService : IVideoImageService
 {
-    public class VideoImageService:IVideoImageService
+    public readonly IVideoImageRepository _videoImageRepository;
+
+    public VideoImageService(IVideoImageRepository videoImageRepository)
     {
-        public readonly IVideoImageRepository _videoImageRepository;
+        _videoImageRepository = videoImageRepository;
+    }
 
-        public VideoImageService(IVideoImageRepository videoImageRepository)
-        {
-            _videoImageRepository = videoImageRepository;
-        }
+    /// <summary>
+    /// Obtem todos os videos 
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerable<VideoImage> GetAll()
+    {
+        return _videoImageRepository.GetAllSavedVideos();
+    }
 
+    /// <summary>
+    /// Obtem o video por Id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public VideoImage? GetById(int id)
+    {
+        var obj = _videoImageRepository.GetVideoById(id);
+        return obj;
+    }
 
-        public IEnumerable<VideoImage> GetAll()
-        {
-           return _videoImageRepository.ListarTodos();
-        }
+    /// <summary>
+    /// Insere o video no banco de dados
+    /// </summary>
+    /// <param name="entity"></param>
+    public void Insert(VideoImage entity)
+    {
+        _videoImageRepository.InsertVideo(entity);
+    }
 
-        public VideoImage? GetById(int id)
-        {
-            var obj = _videoImageRepository.CarregarPorId(id);
-            return obj;
-        }
+    /// <summary>
+    /// Atualiza o registro do video
+    /// </summary>
+    /// <param name="entity"></param>
+    public void Update(VideoImage entity)
+    {
+        _videoImageRepository.UpdateVideoRegistry(entity);
+    }
 
-        public void Insert(VideoImage entity)
-        {
-           _videoImageRepository.Inserir(entity);
-        }
-
-        public void Update(VideoImage entity)
-        {
-            _videoImageRepository.Alterar(entity);
-        
-        }
-
-        public void Delete(int id)
-        {
-            _videoImageRepository.Excluir(id);
-        }
+    /// <summary>
+    /// Apaga o registro do video do banco de dados por Id
+    /// </summary>
+    /// <param name="id"></param>
+    public void Delete(int id)
+    {
+        _videoImageRepository.DEleteVideoRegistryById(id);
     }
 }

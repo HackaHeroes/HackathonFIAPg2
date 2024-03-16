@@ -1,21 +1,32 @@
-﻿using Hackaton.Fiap.Grupo02.Application.Interfaces;
+﻿using System.Text.Json;
+using Hackaton.Fiap.Grupo02.Application.Interfaces;
+using Hackaton.Fiap.Grupo02.Domain.Data;
 using Hackaton.Fiap.Grupo02.Domain.Entities;
+using Hackaton.Fiap.Grupo02.Domain.Interfaces.Services;
+using MassTransit;
 
 namespace Hackaton.Fiap.Grupo02.Application.Applications;
 
 public class VideoApplication : IVideoApplication
 {
-    public readonly IVideoApplication _videoApp;
-    public VideoApplication(IVideoApplication videoApp)
+    public readonly IVideoImageService _VideoImageService;
+
+    public VideoApplication(IVideoImageService videoImageService)
     {
-        _videoApp = videoApp;
+        _VideoImageService = videoImageService;
     }
 
 
-
-    public async Task ProcessaAsync(string base64)
+    public async Task ProcessAsync(MessageData message)
     {
-        var stream = await ToMemoryStream(base64);
+        var registry = new VideoImage()
+        {
+            VideoName = message.VideoName,
+            VideoLink = message.VideoLink,
+            CreatedAt = DateTime.Now
+        };
+        SaveFile(registry);
+        var stream = await ToMemoryStream(JsonSerializer.Serialize(message));
     }
 
     private static async Task<MemoryStream> ToMemoryStream(string base64)
@@ -30,9 +41,10 @@ public class VideoApplication : IVideoApplication
         return ms;
     }
 
-    private void GravarArquivo(string output)
+    private void SaveFile(VideoImage output)
     {
-
+        
+        _VideoImageService.Insert(output);
     }
 
     public Task Processa(string url)
@@ -40,9 +52,8 @@ public class VideoApplication : IVideoApplication
         throw new NotImplementedException();
     }
 
-    public Task<List<VideoImage>> GetAll()
+    public IEnumerable<VideoImage> GetAll()
     {
-        return _videoApp.GetAll();
-
+        return _VideoImageService.GetAll();
     }
 }

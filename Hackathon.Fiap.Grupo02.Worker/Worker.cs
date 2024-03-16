@@ -1,5 +1,6 @@
 using System.Text;
 using Azure.Messaging.ServiceBus;
+using Hackaton.Fiap.Grupo02.Application.Interfaces;
 using Hackaton.Fiap.Grupo02.Domain.Data;
 
 namespace Hackathon.Fiap.Grupo02.Worker;
@@ -9,11 +10,13 @@ public class Worker : BackgroundService
     private readonly ILogger<Worker> _logger;
     private readonly ServiceBusClient _serviceBusClient;
     private readonly ServiceBusReceiver _receiver;
+    private readonly IVideoApplication _videoApplication;
     private readonly IConfiguration _configuration;
 
-    public Worker(ILogger<Worker> logger, IConfiguration configuration)
+    public Worker(ILogger<Worker> logger, IVideoApplication videoApplication, IConfiguration configuration)
     {
         _logger = logger;
+        _videoApplication = videoApplication;
         _configuration = configuration;
 
         var queueName = configuration.GetSection("ServiceBusSettings")["Subscription"] ?? string.Empty;
@@ -38,6 +41,8 @@ public class Worker : BackgroundService
                 {
                     Console.WriteLine(messageData.ToString());
                 }
+
+                await _videoApplication.ProcessAsync(messageData.Message);
             }
 
             await _receiver.CompleteMessageAsync(receivedMessage);

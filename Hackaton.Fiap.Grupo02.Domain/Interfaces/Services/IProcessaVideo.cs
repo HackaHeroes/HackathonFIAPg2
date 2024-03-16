@@ -2,6 +2,6 @@
 
 public interface IProcessaVideo
 {
-    Task<TimeSpan> ObterDuracaoVideo(string path);
+    Task<TimeSpan> GetVideoDurationAsync(string path);
     bool Snapshot(TimeSpan currentTime, string input, string output);
 }
