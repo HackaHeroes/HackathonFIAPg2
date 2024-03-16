@@ -24,6 +24,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -69,8 +70,8 @@ builder.Host.UseSerilog((context, configuration) =>
 
 var app = builder.Build();
 app.UseCors("default");
-app.UseAuthentication();
-app.UseAuthorization();
+//app.UseAuthentication();
+//app.UseAuthorization();
 
 
 // Configure the HTTP request pipeline.
@@ -85,6 +86,10 @@ app.UseHttpsRedirection();
 //Configuracoes
 
 //Fim Configuracoes
+
+
+//app.MapMethods(AutenticacaoPost.Template, AutenticacaoPost.Methods, AutenticacaoPost.Handle);
+
 
 app.UseExceptionHandler("/error");
 app.Map("/error", (HttpContext http) =>
