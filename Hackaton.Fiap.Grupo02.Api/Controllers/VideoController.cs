@@ -17,21 +17,14 @@ public class VideoController : ControllerBase
     public async Task<IActionResult> GetStatusAsync(string url)
     {
         await _application.GetStatusProcessAsync(url);
+        return Ok();
+    }
 
-        //public async Task<IActionResult> Get(string url)
-        //{
-        //    await _application.Processa(url);
-
-        //    return Ok();
-        //}
-
-        [HttpGet]
+    [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             //await _application.Processa(url);
 
             return Ok("Hello world");
         }
-
     }
-}
