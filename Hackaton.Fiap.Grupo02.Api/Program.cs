@@ -24,37 +24,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-//builder.Services.AddAuthorization(options =>
-//{
-//    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-//        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-//        .RequireAuthenticatedUser()
-//        .Build();
-//    options.AddPolicy("EmployeePolicy", p =>
-//        p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
-//    options.AddPolicy("CpfPolicy", p =>
-//        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
-//});
-//builder.Services.AddAuthentication(x =>
-//{
-//    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//}).AddJwtBearer(options =>
-//{
-//    options.TokenValidationParameters = new TokenValidationParameters()
-//    {
-//        ValidateActor = true,
-//        ValidateAudience = true,
-//        ValidateIssuer = true,
-//        ValidateLifetime = true,
-//        ValidateIssuerSigningKey = true,
-//        ClockSkew = TimeSpan.Zero,
-//        ValidIssuer = builder.Configuration["JwtBearerTokenSettings:Issuer"],
-//        ValidAudience = builder.Configuration["JwtBearerTokenSettings:Audience"],
-//        IssuerSigningKey = new SymmetricSecurityKey(
-//            Encoding.UTF8.GetBytes(builder.Configuration["JwtBearerTokenSettings:SecretKey"]))
-//    };
-//});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -101,8 +70,8 @@ builder.Host.UseSerilog((context, configuration) =>
 
 var app = builder.Build();
 app.UseCors("default");
-app.UseAuthentication();
-app.UseAuthorization();
+//app.UseAuthentication();
+//app.UseAuthorization();
 
 
 // Configure the HTTP request pipeline.
@@ -119,6 +88,7 @@ app.UseHttpsRedirection();
 //Fim Configuracoes
 
 
+//app.MapMethods(AutenticacaoPost.Template, AutenticacaoPost.Methods, AutenticacaoPost.Handle);
 
 
 app.UseExceptionHandler("/error");

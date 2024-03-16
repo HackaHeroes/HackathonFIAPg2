@@ -1,4 +1,5 @@
 ﻿using Hackaton.Fiap.Grupo02.Application.Interfaces;
+using Hackaton.Fiap.Grupo02.Domain.Entities;
 
 namespace Hackaton.Fiap.Grupo02.Application.Applications;
 
@@ -27,6 +28,11 @@ public class VideoApplication : IVideoApplication
     }
 
     public Task Processa(string url)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<List<VideoImage>> GetAll()
     {
         throw new NotImplementedException();
     }

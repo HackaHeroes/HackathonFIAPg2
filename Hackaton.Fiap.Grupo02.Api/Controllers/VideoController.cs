@@ -14,11 +14,20 @@ namespace Hackaton.Fiap.Grupo02.Api.Controllers
             _application = application;
         }
 
-        public async Task<IActionResult> Get(string url)
-        {
-            await _application.Processa(url);
+        //public async Task<IActionResult> Get(string url)
+        //{
+        //    await _application.Processa(url);
 
-            return Ok();
+        //    return Ok();
+        //}
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            //await _application.Processa(url);
+
+            return Ok("Hello world");
         }
+
     }
 }
