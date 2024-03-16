@@ -24,4 +24,5 @@ CREATE TABLE [dbo].[VideoImages](
 GO
 
 ALTER TABLE [dbo].[VideoImages] ADD  CONSTRAINT [DF_VideoImages_CreatedAt]  DEFAULT (getdate()) FOR [CreatedAt]
+
 GO
