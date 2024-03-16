@@ -40,14 +40,15 @@ namespace Hackaton.Fiap.Grupo02.IOCWrapper
                 {
                     cfg.Host(connectionString);
 
-                    cfg.ReceiveEndpoint(queueName, e =>
-                    {
-                        e.Consumer<ReceivedMessage>();
-                    });
+                    cfg.ReceiveEndpoint(queueName, e => { e.Consumer<ReceivedMessage>(); });
                 });
             });
         }
+        public static void AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<IVideoImageRepository, VideoImageRepository>();
+            services.AddScoped<IVideoImageService, VideoImageService>();
+        }
+
     }
-
-
 }

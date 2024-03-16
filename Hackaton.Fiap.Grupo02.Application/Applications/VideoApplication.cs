@@ -25,4 +25,9 @@ public class VideoApplication : IVideoApplication
     {
 
     }
+
+    public Task Processa(string url)
+    {
+        throw new NotImplementedException();
+    }
 }
