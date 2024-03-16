@@ -1,5 +1,10 @@
+using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
+using Hackaton.Fiap.Grupo02.Domain.Interfaces.Services;
+using Hackaton.Fiap.Grupo02.Domain.Services;
 using Hackaton.Fiap.Grupo02.Domain.Event;
 using Hackaton.Fiap.Grupo02.Infra.Database;
+using Hackaton.Fiap.Grupo02.Infra.Database.Repositories;
+using Microsoft.EntityFrameworkCore;
 using MassTransit;
 using MassTransit.Testing;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +32,10 @@ public static class Startup
         
         services.AddMassTransit(x =>
         {
+            services.AddDbContext<SistemaDbContext>(options => options.UseSqlServer());
+            services.AddScoped<IVideoImageRepository, VideoImageRepository>();
+            services.AddScoped<IVideoImageService, VideoImageService>();
+        }
             x.UsingAzureServiceBus((context, cfg) =>
             {
                 cfg.Host(connectionString);
