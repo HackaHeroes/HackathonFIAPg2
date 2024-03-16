@@ -5,42 +5,22 @@ using Microsoft.Extensions.Configuration;
 
 
 
-namespace Hackaton.Fiap.Grupo02.Infra.Database
+namespace Hackaton.Fiap.Grupo02.Infra.Database;
+
+public class SistemaDbContext : DbContext
 {
-    public class SistemaDbContext : DbContext
+    private readonly IConfiguration _configuration;
+
+    public SistemaDbContext(IConfiguration configuration)
     {
-
-        public DbSet<VideoImage> VideoImages{ get; set; }
-
-
-        private readonly IConfiguration _configuration;
-
-        public SistemaDbContext(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        _configuration = configuration;
+    }
 
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            VideoImageMapping.Map(modelBuilder);
-
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-          
-
-
-
-            var connectionstring = _configuration["ConnectionStrings:DefaultConnection"];
-            
-
-            optionsBuilder.UseSqlServer(connectionstring);
-
-        }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
 
     }
 }
