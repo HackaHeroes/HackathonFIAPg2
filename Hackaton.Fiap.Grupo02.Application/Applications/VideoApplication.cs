@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using Hackaton.Fiap.Grupo02.Application.Interfaces;
 using Hackaton.Fiap.Grupo02.Domain.Data;
 using Hackaton.Fiap.Grupo02.Domain.Entities;
@@ -47,7 +47,7 @@ public class VideoApplication : IVideoApplication
         _VideoImageService.Insert(output);
     }
 
-    public Task Processa(string url)
+    public Task GetStatusProcessAsync(string url)
     {
         throw new NotImplementedException();
     }

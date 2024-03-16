@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Hackaton.Fiap.Grupo02.Domain.Entities;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
 using System.Linq.Expressions;
@@ -18,14 +18,14 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         Context.SaveChanges();
     }
 
-    public T? Carregar(Expression<Func<T, bool>> predicate)
+    public T? Upload(Expression<Func<T, bool>> predicate)
     {
         return Context.Set<T>().FirstOrDefault(predicate);
     }
 
     public T? GetVideoById(int id) => Context.Set<T>().FirstOrDefault(m => m.Id == id);
 
-    public void DEleteVideoRegistryById(int id)
+    public void DeleteVideoById(int id)
     {
         var entity = Context.Set<T>().Find(id);
         if (entity != null)
@@ -41,7 +41,7 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         Context.SaveChanges();
     }
 
-    public IEnumerable<T> GetAllSavedVideos()
+    public IEnumerable<T> GetAllUploads()
     {
         try
         {
@@ -60,12 +60,12 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         return Context.Set<T>().Where(predicate).ToList();
     }
 
-    public int QuantidadeRegistros()
+    public int GetRegistryQuantity()
     {
         return Context.Set<T>().Count();
     }
 
-    public int QuantidadeRegistrosWhre(Expression<Func<T, bool>> predicate)
+    public int GetRegistryQuantityByCondition(Expression<Func<T, bool>> predicate)
     {
         return Context.Set<T>().Where(predicate).Count();
     }

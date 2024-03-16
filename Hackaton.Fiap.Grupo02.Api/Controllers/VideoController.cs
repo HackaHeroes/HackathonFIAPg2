@@ -1,4 +1,4 @@
-﻿using Hackaton.Fiap.Grupo02.Application.Interfaces;
+using Hackaton.Fiap.Grupo02.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hackaton.Fiap.Grupo02.Api.Controllers;
@@ -14,19 +14,19 @@ public class VideoController : ControllerBase
         _application = application;
     }
 
-    //public async Task<IActionResult> Get(string url)
-    //{
-    //    await _application.Processa(url);
-
-    //    return Ok();
-    //}
+    public async Task<IActionResult> GetStatusAsync(string url)
+    {
+        await _application.GetStatusProcessAsync(url);
+        return Ok();
+    }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        //await _application.Processa(url);
+        public async Task<IActionResult> GetAll()
+        {
+            //await _application.Processa(url);
 
-        return Ok("Hello world");
+            return Ok("Hello world");
+        }
     }
 
 }

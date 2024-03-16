@@ -1,4 +1,4 @@
-﻿using Hackaton.Fiap.Grupo02.Application.Applications;
+using Hackaton.Fiap.Grupo02.Application.Applications;
 using Hackaton.Fiap.Grupo02.Application.Interfaces;
 using Hackaton.Fiap.Grupo02.Domain.Events;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;

@@ -1,4 +1,4 @@
-﻿using Hackaton.Fiap.Grupo02.Domain.Entities;
+using Hackaton.Fiap.Grupo02.Domain.Entities;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Services;
 

@@ -8,9 +8,7 @@ public class ProcessaVideoTests
     Mock<IProcessaVideo> processaVideoMock = new Mock<IProcessaVideo>();
     public ProcessaVideoTests()
     {
-        processaVideoMock.Setup(x => 
-                x.GetVideoDurationAsync(It.IsAny<string>()))
-            .ReturnsAsync(new TimeSpan(0, 0, 20));
+        processaVideoMock.Setup(x => x.ObterDuracaoVideo(It.IsAny<string>())).ReturnsAsync(new TimeSpan(0, 0, 20));
         processaVideoMock.Setup(x => x.Snapshot(It.IsAny<TimeSpan>(), It.IsAny<string>(), It.IsAny<string>()))
             .Returns(true);
     }
@@ -18,7 +16,7 @@ public class ProcessaVideoTests
     [Fact]
     public void DeveObterDuracaoVideo()
     {
-        var result = processaVideoMock.Object.GetVideoDurationAsync(string.Empty).Result;
+        var result = processaVideoMock.Object.ObterDuracaoVideo(string.Empty).Result;
 
         Assert.NotNull(result);
         Assert.Equal(new TimeSpan(0, 0, 20), result);
