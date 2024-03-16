@@ -5,6 +5,14 @@ namespace Hackaton.Fiap.Grupo02.Application.Applications;
 
 public class VideoApplication : IVideoApplication
 {
+    public readonly IVideoApplication _videoApp;
+    public VideoApplication(IVideoApplication videoApp)
+    {
+        _videoApp = videoApp;
+    }
+
+
+
     public async Task ProcessaAsync(string base64)
     {
         var stream = await ToMemoryStream(base64);
@@ -34,6 +42,7 @@ public class VideoApplication : IVideoApplication
 
     public Task<List<VideoImage>> GetAll()
     {
-        throw new NotImplementedException();
+        return _videoApp.GetAll();
+
     }
 }
