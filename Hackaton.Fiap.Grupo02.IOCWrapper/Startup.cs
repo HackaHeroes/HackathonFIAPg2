@@ -27,6 +27,7 @@ public static class Startup
     {
         services.AddDbContext<SistemaDbContext>(options => options.UseSqlServer());
     }
+            services.AddScoped<IVideoApplication, VideoApplication>();
 
     public static void AddServiceBus(this IServiceCollection services, IConfiguration configuration)
     {

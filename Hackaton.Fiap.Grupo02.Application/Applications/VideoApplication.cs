@@ -37,6 +37,8 @@ public class VideoApplication : IVideoApplication
 
     public Task GetStatusProcessAsync(string url)
     {
+
+
         throw new NotImplementedException();
     }
 

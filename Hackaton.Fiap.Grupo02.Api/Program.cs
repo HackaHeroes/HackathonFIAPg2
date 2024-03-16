@@ -1,5 +1,6 @@
 using Hackaton.Fiap.Grupo02.Api.Controllers;
 using Hackaton.Fiap.Grupo02.IOCWrapper;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -20,7 +21,46 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.Configure<FormOptions>(o =>
+{
+    o.ValueLengthLimit = int.MaxValue;
+    o.MultipartBodyLengthLimit = int.MaxValue;
+    o.MemoryBufferThreshold = int.MaxValue;
+});
 
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+//        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+//        .RequireAuthenticatedUser()
+//        .Build();
+//    options.AddPolicy("EmployeePolicy", p =>
+//        p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
+//    options.AddPolicy("CpfPolicy", p =>
+//        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
+//});
+//builder.Services.AddAuthentication(x =>
+//{
+//    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//}).AddJwtBearer(options =>
+//{
+//    options.TokenValidationParameters = new TokenValidationParameters()
+//    {
+//        ValidateActor = true,
+//        ValidateAudience = true,
+//        ValidateIssuer = true,
+//        ValidateLifetime = true,
+//        ValidateIssuerSigningKey = true,
+//        ClockSkew = TimeSpan.Zero,
+//        ValidIssuer = builder.Configuration["JwtBearerTokenSettings:Issuer"],
+//        ValidAudience = builder.Configuration["JwtBearerTokenSettings:Audience"],
+//        IssuerSigningKey = new SymmetricSecurityKey(
+//            Encoding.UTF8.GetBytes(builder.Configuration["JwtBearerTokenSettings:SecretKey"]))
+//    };
+//});
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -44,8 +84,6 @@ builder.Services.AddSwaggerGen(options =>
     });
     // using System.Reflection;
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-
-
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
@@ -78,6 +116,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapControllers();
 
 //Configuracoes
 

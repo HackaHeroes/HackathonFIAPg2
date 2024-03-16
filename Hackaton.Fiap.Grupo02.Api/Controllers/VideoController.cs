@@ -27,4 +27,14 @@ public class VideoController : ControllerBase
 
             return Ok("Hello world");
         }
+
+        [HttpPost, DisableRequestSizeLimit]
+        public async Task<IActionResult> Post([FromForm] object data)
+        {
+            Console.WriteLine(data);
+            var file = Request.Form.Files[0];
+            Console.WriteLine(file);
+
+            return Ok();
+        }
     }
