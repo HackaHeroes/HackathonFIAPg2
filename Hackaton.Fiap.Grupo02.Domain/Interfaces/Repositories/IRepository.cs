@@ -4,11 +4,11 @@ namespace Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories
 {
     public interface IRepository<T>
     {
-        T? CarregarPorId(Guid id);
+        T? CarregarPorId(int id);
         T? Carregar(Expression<Func<T, bool>> predicate);
         void Inserir(T entity);
         void Alterar(T entity);
-        void Excluir(Guid id);
+        void Excluir(int id);
         IEnumerable<T> ListarTodos();
         IEnumerable<T> ListarWhere(Expression<Func<T, bool>> predicate);
         int QuantidadeRegistros();
