@@ -1,5 +1,7 @@
 using Hackaton.Fiap.Grupo02.Application.Interfaces;
+using Hackaton.Fiap.Grupo02.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Hackaton.Fiap.Grupo02.Api.Controllers;
 
@@ -23,18 +25,17 @@ public class VideoController : ControllerBase
     [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            //await _application.Processa(url);
-
-            return Ok("Hello world");
+            return Ok();
         }
 
         [HttpPost, DisableRequestSizeLimit]
         [RequestSizeLimit(valueCountLimit: int.MaxValue)]
-        public async Task<IActionResult> Post([FromForm] string data)
+        public async Task<IActionResult> Post([FromBody] object data)
         {
             Console.WriteLine(data);
-            var file = Request.Form.Files[0];
-            Console.WriteLine(file);
+            var dd = JsonConvert.DeserializeObject<InboundFileViewModel>(data.ToString());
+
+            _application.Processa(dd);
 
             return Ok();
         }
