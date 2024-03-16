@@ -1,4 +1,6 @@
-﻿using Hackaton.Fiap.Grupo02.Domain.Events;
+﻿using Hackaton.Fiap.Grupo02.Application.Applications;
+using Hackaton.Fiap.Grupo02.Application.Interfaces;
+using Hackaton.Fiap.Grupo02.Domain.Events;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Services;
 using Hackaton.Fiap.Grupo02.Domain.Services;
@@ -48,6 +50,7 @@ namespace Hackaton.Fiap.Grupo02.IOCWrapper
         {
             services.AddScoped<IVideoImageRepository, VideoImageRepository>();
             services.AddScoped<IVideoImageService, VideoImageService>();
+            services.AddScoped<IVideoApplication, VideoApplication>();
         }
 
     }
