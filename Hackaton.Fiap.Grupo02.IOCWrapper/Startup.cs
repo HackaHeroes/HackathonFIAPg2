@@ -32,7 +32,7 @@ public static class Startup
     {
         var queueName = configuration.GetSection("ServiceBusSettings")["Subscription"] ?? string.Empty;
         var connectionString = configuration.GetSection("ServiceBusSettings")["PubSubConnection"] ?? string.Empty;
-        
+
         services.AddMassTransit(x =>
         {
             x.UsingAzureServiceBus((context, cfg) =>
@@ -41,19 +41,12 @@ public static class Startup
 
                 cfg.ReceiveEndpoint(queueName, e => { e.Consumer<ReceivedMessage>(); });
             });
-        }
-        public static void AddServices(this IServiceCollection services)
-        {
-            services.AddScoped<IVideoImageRepository, VideoImageRepository>();
-            services.AddScoped<IVideoImageService, VideoImageService>();
-            services.AddScoped<IVideoApplication, VideoApplication>();
-        }
-
+        });
     }
+
     public static void AddServices(this IServiceCollection services)
     {
         services.AddScoped<IVideoImageRepository, VideoImageRepository>();
         services.AddScoped<IVideoImageService, VideoImageService>();
     }
-
 }
