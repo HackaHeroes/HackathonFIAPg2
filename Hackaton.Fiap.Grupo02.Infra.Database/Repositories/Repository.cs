@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Hackaton.Fiap.Grupo02.Domain.Entities;
 using Hackaton.Fiap.Grupo02.Domain.Interfaces.Repositories;
 using System.Linq.Expressions;
@@ -23,9 +23,9 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         return Context.Set<T>().FirstOrDefault(predicate);
     }
 
-    public T? CarregarPorId(Guid id) => Context.Set<T>().FirstOrDefault(m => m.Id == id);
+    public T? CarregarPorId(int id) => Context.Set<T>().FirstOrDefault(m => m.Id == id);
 
-    public void Excluir(Guid id)
+    public void Excluir(int id)
     {
         var entity = Context.Set<T>().Find(id);
         if (entity != null)

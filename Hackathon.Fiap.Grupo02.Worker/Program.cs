@@ -7,7 +7,8 @@ var host = Host.CreateDefaultBuilder(args)
         
         var configuration = hostContext.Configuration;
         services.AddHostedService<Worker>();
-        services.ServiceBusSettings(configuration);
+        services.AddServiceBus(configuration);
+        services.AddDataBase();
         services.AddServices();
         
     })

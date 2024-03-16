@@ -24,18 +24,20 @@ public static class Startup
         //});
 
     }
-        
-    public static void ServiceBusSettings(this IServiceCollection services, IConfiguration configuration)
+    
+    public static void AddDataBase(this IServiceCollection services)
     {
-        var queueName = configuration.GetSection("ServiceBusSettings")["Subscription"] ?? string.Empty;
-        var connectionString = configuration.GetSection("ServiceBusSettings")["PubSubConnection"] ?? string.Empty;
+        services.AddDbContext<SistemaDbContext>(options => options.UseSqlServer());
+    }
+    
+    public static void AddServiceBus(this IServiceCollection services, IConfiguration configuration)
+    {
+        var queueName = configuration.GetSection("AddServiceBus")["Subscription"] ?? string.Empty;
+        var connectionString = configuration.GetSection("AddServiceBus")["PubSubConnection"] ?? string.Empty;
         
+
         services.AddMassTransit(x =>
         {
-            services.AddDbContext<SistemaDbContext>(options => options.UseSqlServer());
-            services.AddScoped<IVideoImageRepository, VideoImageRepository>();
-            services.AddScoped<IVideoImageService, VideoImageService>();
-        }
             x.UsingAzureServiceBus((context, cfg) =>
             {
                 cfg.Host(connectionString);
@@ -50,6 +52,7 @@ public static class Startup
     
     public static void AddServices(this IServiceCollection services)
     {
-        //services.AddScoped<>();
+        services.AddScoped<IVideoImageRepository, VideoImageRepository>();
+        services.AddScoped<IVideoImageService, VideoImageService>();
     }
 }
