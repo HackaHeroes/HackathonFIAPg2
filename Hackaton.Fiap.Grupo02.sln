@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Cross
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.IOCWrapper", "Hackaton.Fiap.Grupo02.IOCWrapper\Hackaton.Fiap.Grupo02.IOCWrapper.csproj", "{11A3A54A-430F-400D-B41D-DBD7D64E35E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackaton.Fiap.Grupo02.CrossCutting.FFMpegSupport", "Hackaton.Fiap.Grupo02.CrossCutting.FFMpegSupport\Hackaton.Fiap.Grupo02.CrossCutting.FFMpegSupport.csproj", "{610F6A03-E2FB-4F19-BAA8-1684E24D44E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackaton.Fiap.Grupo02.Infra.FFMpegSupport", "Hackaton.Fiap.Grupo02.CrossCutting.FFMpegSupport\Hackaton.Fiap.Grupo02.Infra.FFMpegSupport.csproj", "{610F6A03-E2FB-4F19-BAA8-1684E24D44E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackaton.Fiap.Grupo02.Infra.ZipSupport", "Hackaton.Fiap.Grupo02.Infra.ZipSupport\Hackaton.Fiap.Grupo02.Infra.ZipSupport.csproj", "{0484FCC8-6194-4228-886A-DD0E4ADFB223}"
 EndProject
@@ -78,7 +78,7 @@ Global
 		{D40FABA4-8595-4B32-8A46-3C9E75BB5031} = {312435A1-BB91-424F-AEB0-9E0572A4409C}
 		{6F9E412A-B2DA-41AA-99C1-615ADFF62B94} = {B6ED0816-737C-4BB3-BC09-57E11596E497}
 		{11A3A54A-430F-400D-B41D-DBD7D64E35E6} = {B6ED0816-737C-4BB3-BC09-57E11596E497}
-		{610F6A03-E2FB-4F19-BAA8-1684E24D44E1} = {B6ED0816-737C-4BB3-BC09-57E11596E497}
+		{610F6A03-E2FB-4F19-BAA8-1684E24D44E1} = {312435A1-BB91-424F-AEB0-9E0572A4409C}
 		{0484FCC8-6194-4228-886A-DD0E4ADFB223} = {312435A1-BB91-424F-AEB0-9E0572A4409C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
