@@ -4,7 +4,7 @@ using Hackaton.Fiap.Grupo02.Domain.Interfaces.Services;
 
 namespace Hackaton.Fiap.Grupo02.Domain.Services;
 
-public class VideoImageService:IVideoImageService
+public class VideoImageService : IVideoImageService
 {
     public readonly IVideoImageRepository _videoImageRepository;
 

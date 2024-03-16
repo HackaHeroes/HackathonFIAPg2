@@ -18,7 +18,7 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         Context.SaveChanges();
     }
 
-    public T? Carregar(Expression<Func<T, bool>> predicate)
+    public T? Upload(Expression<Func<T, bool>> predicate)
     {
         return Context.Set<T>().FirstOrDefault(predicate);
     }
@@ -60,12 +60,12 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         return Context.Set<T>().Where(predicate).ToList();
     }
 
-    public int QuantidadeRegistros()
+    public int GetRegistryQuantity()
     {
         return Context.Set<T>().Count();
     }
 
-    public int QuantidadeRegistrosWhre(Expression<Func<T, bool>> predicate)
+    public int GetRegistryQuantityByCondition(Expression<Func<T, bool>> predicate)
     {
         return Context.Set<T>().Where(predicate).Count();
     }

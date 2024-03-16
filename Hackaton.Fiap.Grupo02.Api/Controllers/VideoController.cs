@@ -14,9 +14,9 @@ public class VideoController : ControllerBase
         _application = application;
     }
 
-    public async Task<IActionResult> Get(string url)
+    public async Task<IActionResult> GetStatusAsync(string url)
     {
-        await _application.Processa(url);
+        await _application.GetStatusProcessAsync(url);
 
         return Ok();
     }

@@ -30,8 +30,7 @@ public static class Startup
     {
         var queueName = configuration.GetSection("ServiceBusSettings")["Subscription"] ?? string.Empty;
         var connectionString = configuration.GetSection("ServiceBusSettings")["PubSubConnection"] ?? string.Empty;
-
-
+        
         services.AddMassTransit(x =>
         {
             x.UsingAzureServiceBus((context, cfg) =>

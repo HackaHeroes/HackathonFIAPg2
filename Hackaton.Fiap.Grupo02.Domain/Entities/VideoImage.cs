@@ -1,6 +1,6 @@
 ﻿namespace Hackaton.Fiap.Grupo02.Domain.Entities;
 
-public class VideoImage: BaseEntity
+public class VideoImage : BaseEntity
 {
     public string VideoName { get; set; }
     public string VideoLink { get; set; }
