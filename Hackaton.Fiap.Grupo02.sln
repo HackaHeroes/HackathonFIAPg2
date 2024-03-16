@@ -25,9 +25,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Cross
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.IOCWrapper", "Hackaton.Fiap.Grupo02.IOCWrapper\Hackaton.Fiap.Grupo02.IOCWrapper.csproj", "{11A3A54A-430F-400D-B41D-DBD7D64E35E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackaton.Fiap.Grupo02.Infra.FFMpegSupport", "Hackaton.Fiap.Grupo02.CrossCutting.FFMpegSupport\Hackaton.Fiap.Grupo02.Infra.FFMpegSupport.csproj", "{610F6A03-E2FB-4F19-BAA8-1684E24D44E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.CrossCutting.FFMpegSupport", "Hackaton.Fiap.Grupo02.CrossCutting.FFMpegSupport\Hackaton.Fiap.Grupo02.CrossCutting.FFMpegSupport.csproj", "{610F6A03-E2FB-4F19-BAA8-1684E24D44E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackaton.Fiap.Grupo02.Infra.ZipSupport", "Hackaton.Fiap.Grupo02.Infra.ZipSupport\Hackaton.Fiap.Grupo02.Infra.ZipSupport.csproj", "{0484FCC8-6194-4228-886A-DD0E4ADFB223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Fiap.Grupo02.Infra.ZipSupport", "Hackaton.Fiap.Grupo02.Infra.ZipSupport\Hackaton.Fiap.Grupo02.Infra.ZipSupport.csproj", "{0484FCC8-6194-4228-886A-DD0E4ADFB223}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BEA4A717-F054-4240-8054-0B91614396F4}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
