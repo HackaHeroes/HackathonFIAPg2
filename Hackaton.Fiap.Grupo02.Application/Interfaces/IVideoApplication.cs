@@ -2,5 +2,5 @@
 
 public interface IVideoApplication
 {
-    Task ProcessReceivedMessage(string url);
+    Task Processa(string url);
 }
